@@ -1,5 +1,5 @@
 -- ==========================================================
--- STEAL AN EGG - ULTIMATE HUB (50 TÍNH NĂNG CHUẨN XÁC)
+-- STEAL AN EGG - ULTIMATE HUB (FINAL CLEAN VERSION)
 -- Platform: Delta Executor
 -- Pass Mặc Định: 123
 -- ==========================================================
@@ -157,7 +157,7 @@ local function LaunchMainHub()
     addFeature(9, "Spin Bot (Xoay Nhân Vật)", function(s) end)
     addFeature(10, "Float In Air (Đứng Trên Không)", function(s) end)
 
-    -- 11-20: Bảo vệ, Bất tử & Xây dựng
+    -- 11-20: Bảo vệ, Bất tử & Xây dựng (Thay vị trí 18 thành Anti-Slow)
     addFeature(11, "🛡️ God Mode (Bất Tử)", function(s)
         godModeEnabled = s
         local hum = player.Character and player.Character:FindFirstChildOfClass("Humanoid")
@@ -199,7 +199,7 @@ local function LaunchMainHub()
     addFeature(15, "Anti Knockback (Chống Đẩy Lùi)", function(s) end)
     addFeature(16, "Invisibility (Tàng Hình)", function(s) end)
     addFeature(17, "Auto Shield (Khung Bảo Vệ)", function(s) end)
-    addFeature(18, "Remove Fog (Xóa Sương Mù)", function(s) game:GetService("Lighting").FogEnd = s and 100000 or 1000 end)
+    addFeature(18, "Anti-Slow (Chống Bị Làm Chậm)", function(s) end) -- Thay thế Xóa Sương Mù
     addFeature(19, "Full Bright (Sáng Toàn Map)", function(s) game:GetService("Lighting").Brightness = s and 3 or 1 end)
     addFeature(20, "Auto Re-Steal (Cướp Lại Ngay Lập Tức)", function(s) end)
 
@@ -215,7 +215,7 @@ local function LaunchMainHub()
     addFeature(29, "Auto Open Egg Prompt (Mở Nhanh Không Chờ)", function(s) end)
     addFeature(30, "Show Egg Tier Info (Hiện Phẩm Cấp Trứng)", function(s) end)
 
-    -- 31-40: Nhóm thực chiến hỗ trợ săn trứng thay thế
+    -- 31-40: Nhóm thực chiến hỗ trợ săn trứng
     addFeature(31, "Auto Teleport to Eggs (Lướt Tự Động Qua Trứng)", function(s) end)
     addFeature(32, "Hitbox Expander (Mở Rộng Vùng Nhặt Trứng)", function(s) end)
     addFeature(33, "Teleport To Random Player (Tới Người Chơi Ngẫu Nhiên)", function(s) end)
@@ -382,7 +382,7 @@ local function LaunchMainHub()
             end
 
             if eggCount > 0 then
-                TitleRight.Text = "🥚 Tìm thấy " + eggCount + " trứng trên Map"
+                TitleRight.Text = "🥚 Tìm thấy " .. eggCount .. " trứng trên Map"
             else
                 TitleRight.Text = "🥚 Không tìm thấy trứng nào!"
             end
