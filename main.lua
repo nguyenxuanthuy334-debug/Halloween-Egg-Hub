@@ -1,5 +1,5 @@
 -- ==========================================================
--- STEAL AN EGG - ULTIMATE HUB (FULL IMAGE & EGG VALUE DISPLAY)
+-- XT HUB - PRIVATE VIP (RAINBOW WELCOME + MODERN UI)
 -- Platform: Delta Executor
 -- Pass: 123
 -- ==========================================================
@@ -10,71 +10,129 @@ local RunService = game:GetService("RunService")
 local TweenService = game:GetService("TweenService")
 local player = Players.LocalPlayer
 
-if CoreGui:FindFirstChild("StealAnEggUltimateHub") then
-    CoreGui.StealAnEggUltimateHub:Destroy()
+if CoreGui:FindFirstChild("XTHubPrivateVIP") then
+    CoreGui.XTHubPrivateVIP:Destroy()
 end
 
 local ScreenGui = Instance.new("ScreenGui")
-ScreenGui.Name = "StealAnEggUltimateHub"
+ScreenGui.Name = "XTHubPrivateVIP"
 ScreenGui.Parent = CoreGui
 ScreenGui.ZIndexBehavior = Enum.ZIndexBehavior.Sibling
 
--- Login Frame
+-- UI Login Gate
 local LoginFrame = Instance.new("Frame")
-LoginFrame.Size = UDim2.new(0, 320, 0, 170)
-LoginFrame.Position = UDim2.new(0.5, -160, 0.5, -85)
-LoginFrame.BackgroundColor3 = Color3.fromRGB(20, 20, 20)
+LoginFrame.Size = UDim2.new(0, 340, 0, 190)
+LoginFrame.Position = UDim2.new(0.5, -170, 0.5, -95)
+LoginFrame.BackgroundColor3 = Color3.fromRGB(15, 17, 23)
 LoginFrame.BorderSizePixel = 0
 LoginFrame.Parent = ScreenGui
-Instance.new("UICorner", LoginFrame).CornerRadius = UDim.new(0, 12)
+
+Instance.new("UICorner", LoginFrame).CornerRadius = UDim.new(0, 14)
+
+local LoginStroke = Instance.new("UIStroke")
+LoginStroke.Color = Color3.fromRGB(255, 128, 0)
+LoginStroke.Thickness = 2
+LoginStroke.Parent = LoginFrame
 
 local TitleLogin = Instance.new("TextLabel")
-TitleLogin.Size = UDim2.new(1, 0, 0, 40)
+TitleLogin.Size = UDim2.new(1, 0, 0, 45)
 TitleLogin.Position = UDim2.new(0, 0, 0, 10)
 TitleLogin.BackgroundTransparency = 1
-TitleLogin.Text = "🔑 MẬT KHẨU HUB: 123"
-TitleLogin.TextColor3 = Color3.fromRGB(255, 128, 0)
-TitleLogin.TextSize = 14
-TitleLogin.Font = Enum.Font.SourceSansBold
+TitleLogin.Text = "👑 XT HUB PRIVATE VIP"
+TitleLogin.TextColor3 = Color3.fromRGB(255, 170, 0)
+TitleLogin.TextSize = 16
+TitleLogin.Font = Enum.Font.GothamBold
 TitleLogin.Parent = LoginFrame
 
 local TextBox = Instance.new("TextBox")
-TextBox.Size = UDim2.new(0.8, 0, 0, 40)
-TextBox.Position = UDim2.new(0.1, 0, 0, 60)
-TextBox.BackgroundColor3 = Color3.fromRGB(35, 35, 35)
+TextBox.Size = UDim2.new(0.85, 0, 0, 42)
+TextBox.Position = UDim2.new(0.075, 0, 0, 65)
+TextBox.BackgroundColor3 = Color3.fromRGB(25, 28, 38)
 TextBox.BorderSizePixel = 0
 TextBox.Text = ""
-TextBox.PlaceholderText = "Nhập: 123..."
+TextBox.PlaceholderText = "🔑 Nhập mật khẩu (123)..."
 TextBox.TextColor3 = Color3.fromRGB(255, 255, 255)
+TextBox.PlaceholderColor3 = Color3.fromRGB(120, 130, 150)
 TextBox.TextSize = 13
-TextBox.Font = Enum.Font.SourceSans
+TextBox.Font = Enum.Font.Gotham
 TextBox.Parent = LoginFrame
+
 Instance.new("UICorner", TextBox).CornerRadius = UDim.new(0, 8)
 
 local SubmitBtn = Instance.new("TextButton")
-SubmitBtn.Size = UDim2.new(0.8, 0, 0, 35)
-SubmitBtn.Position = UDim2.new(0.1, 0, 0, 115)
-SubmitBtn.BackgroundColor3 = Color3.fromRGB(0, 170, 255)
-SubmitBtn.Text = "XÁC NHẬN"
+SubmitBtn.Size = UDim2.new(0.85, 0, 0, 38)
+SubmitBtn.Position = UDim2.new(0.075, 0, 0, 125)
+SubmitBtn.BackgroundColor3 = Color3.fromRGB(0, 150, 255)
+SubmitBtn.BorderSizePixel = 0
+SubmitBtn.Text = "ĐĂNG NHẬP"
 SubmitBtn.TextColor3 = Color3.fromRGB(255, 255, 255)
-SubmitBtn.Font = Enum.Font.SourceSansBold
+SubmitBtn.TextSize = 13
+SubmitBtn.Font = Enum.Font.GothamBold
 SubmitBtn.Parent = LoginFrame
+
 Instance.new("UICorner", SubmitBtn).CornerRadius = UDim.new(0, 8)
 
-local function LaunchMainHub()
+-- Khung Chào Mừng 7 Sắc Cầu Vồng (Rainbow Welcome)
+local function ShowWelcomeScreen(onComplete)
     LoginFrame:Destroy()
 
-    -- Nút Toggle Bật/Tắt UI
+    local WelcomeFrame = Instance.new("Frame")
+    WelcomeFrame.Size = UDim2.new(0, 420, 0, 140)
+    WelcomeFrame.Position = UDim2.new(0.5, -210, 0.5, -70)
+    WelcomeFrame.BackgroundColor3 = Color3.fromRGB(12, 14, 20)
+    WelcomeFrame.BorderSizePixel = 0
+    WelcomeFrame.Parent = ScreenGui
+
+    Instance.new("UICorner", WelcomeFrame).CornerRadius = UDim.new(0, 16)
+
+    local WelcomeStroke = Instance.new("UIStroke")
+    WelcomeStroke.Thickness = 3
+    WelcomeStroke.Parent = WelcomeFrame
+
+    local WelcomeText = Instance.new("TextLabel")
+    WelcomeText.Size = UDim2.new(1, -20, 1, -20)
+    WelcomeText.Position = UDim2.new(0, 10, 0, 10)
+    WelcomeText.BackgroundTransparency = 1
+    WelcomeText.Text = "✨ Chào mừng đến hack của Thủy ✨"
+    WelcomeText.TextSize = 18
+    WelcomeText.Font = Enum.Font.GothamBold
+    WelcomeText.TextWrapped = true
+    WelcomeText.Parent = WelcomeFrame
+
+    -- Hiệu ứng Nhấp Nháy 7 Sắc Cầu Vồng
+    local hue = 0
+    local rainbowConn
+    rainbowConn = RunService.RenderStepped:Connect(function(delta)
+        hue = (hue + delta * 0.5) % 1
+        local rainbowColor = Color3.fromHSV(hue, 1, 1)
+        WelcomeText.TextColor3 = rainbowColor
+        WelcomeStroke.Color = rainbowColor
+    end)
+
+    task.delay(3.5, function()
+        if rainbowConn then rainbowConn:Disconnect() end
+        WelcomeFrame:Destroy()
+        if onComplete then onComplete() end
+    end)
+end
+
+local function LaunchMainHub()
+    -- Nút Toggle Bật/Tắt XT HUB
     local ToggleBtn = Instance.new("TextButton")
-    ToggleBtn.Size = UDim2.new(0, 90, 0, 32)
-    ToggleBtn.Position = UDim2.new(0.02, 0, 0.02, 0)
-    ToggleBtn.BackgroundColor3 = Color3.fromRGB(255, 128, 0)
-    ToggleBtn.Text = "ẨN / HIỆN HUB"
-    ToggleBtn.TextColor3 = Color3.fromRGB(255, 255, 255)
-    ToggleBtn.Font = Enum.Font.SourceSansBold
-    ToggleBtn.TextSize = 11
+    ToggleBtn.Size = UDim2.new(0, 100, 0, 35)
+    ToggleBtn.Position = UDim2.new(0.02, 0, 0.03, 0)
+    ToggleBtn.BackgroundColor3 = Color3.fromRGB(20, 24, 33)
+    ToggleBtn.Text = "⚡ ẨN/HIỆN XT HUB"
+    ToggleBtn.TextColor3 = Color3.fromRGB(255, 170, 0)
+    ToggleBtn.Font = Enum.Font.GothamBold
+    ToggleBtn.TextSize = 10
     ToggleBtn.Parent = ScreenGui
-    Instance.new("UICorner", ToggleBtn).CornerRadius = UDim.new(0, 6)
+    Instance.new("UICorner", ToggleBtn).CornerRadius = UDim.new(0, 8)
+
+    local ToggleStroke = Instance.new("UIStroke")
+    ToggleStroke.Color = Color3.fromRGB(255, 128, 0)
+    ToggleStroke.Thickness = 1.5
+    ToggleStroke.Parent = ToggleBtn
 
     local MainContainer = Instance.new("Frame")
     MainContainer.Size = UDim2.new(1, 0, 1, 0)
@@ -85,46 +143,73 @@ local function LaunchMainHub()
         MainContainer.Visible = not MainContainer.Visible
     end)
 
+    -- Menu Trái (XT HUB)
     local LeftMenu = Instance.new("ScrollingFrame")
-    LeftMenu.Size = UDim2.new(0, 240, 0, 340)
+    LeftMenu.Size = UDim2.new(0, 250, 0, 360)
     LeftMenu.Position = UDim2.new(0.02, 0, 0.12, 0)
-    LeftMenu.BackgroundColor3 = Color3.fromRGB(20, 20, 20)
+    LeftMenu.BackgroundColor3 = Color3.fromRGB(15, 17, 23)
     LeftMenu.BorderSizePixel = 0
-    LeftMenu.ScrollBarThickness = 5
+    LeftMenu.ScrollBarThickness = 4
+    LeftMenu.ScrollBarImageColor3 = Color3.fromRGB(255, 128, 0)
     LeftMenu.Parent = MainContainer
-    Instance.new("UICorner", LeftMenu).CornerRadius = UDim.new(0, 10)
+    Instance.new("UICorner", LeftMenu).CornerRadius = UDim.new(0, 12)
+
+    local LeftStroke = Instance.new("UIStroke")
+    LeftStroke.Color = Color3.fromRGB(40, 45, 60)
+    LeftStroke.Thickness = 1
+    LeftStroke.Parent = LeftMenu
 
     local LeftTitle = Instance.new("TextLabel")
-    LeftTitle.Size = UDim2.new(1, 0, 0, 35)
+    LeftTitle.Size = UDim2.new(1, 0, 0, 40)
     LeftTitle.BackgroundTransparency = 1
-    LeftTitle.Text = "⚡ TÍNH NĂNG THỰC CHIẾN"
-    LeftTitle.TextColor3 = Color3.fromRGB(255, 128, 0)
-    LeftTitle.Font = Enum.Font.SourceSansBold
-    LeftTitle.TextSize = 12
+    LeftTitle.Text = "🔥 XT HUB - TÍNH NĂNG VIP"
+    LeftTitle.TextColor3 = Color3.fromRGB(255, 170, 0)
+    LeftTitle.Font = Enum.Font.GothamBold
+    LeftTitle.TextSize = 13
     LeftTitle.Parent = LeftMenu
 
-    local yPos = 40
+    local yPos = 45
     local function addFeature(num, name, callback)
         local btn = Instance.new("TextButton")
-        btn.Size = UDim2.new(0.9, 0, 0, 30)
+        btn.Size = UDim2.new(0.9, 0, 0, 32)
         btn.Position = UDim2.new(0.05, 0, 0, yPos)
-        btn.BackgroundColor3 = Color3.fromRGB(45, 45, 45)
-        btn.Text = num .. ". " .. name .. ": TẮT"
-        btn.TextColor3 = Color3.fromRGB(255, 255, 255)
-        btn.TextSize = 10
-        btn.Font = Enum.Font.SourceSansBold
+        btn.BackgroundColor3 = Color3.fromRGB(25, 28, 38)
+        btn.Text = "  " .. num .. ". " .. name
+        btn.TextColor3 = Color3.fromRGB(200, 210, 225)
+        btn.TextSize = 11
+        btn.Font = Enum.Font.GothamMedium
         btn.TextXAlignment = Enum.TextXAlignment.Left
         btn.Parent = LeftMenu
-        Instance.new("UICorner", btn).CornerRadius = UDim.new(0, 5)
+        Instance.new("UICorner", btn).CornerRadius = UDim.new(0, 6)
+
+        local statusTag = Instance.new("TextLabel")
+        statusTag.Size = UDim2.new(0, 45, 0, 20)
+        statusTag.Position = UDim2.new(1, -50, 0.5, -10)
+        statusTag.BackgroundColor3 = Color3.fromRGB(40, 45, 55)
+        statusTag.Text = "OFF"
+        statusTag.TextColor3 = Color3.fromRGB(150, 150, 150)
+        statusTag.Font = Enum.Font.GothamBold
+        statusTag.TextSize = 9
+        statusTag.Parent = btn
+        Instance.new("UICorner", statusTag).CornerRadius = UDim.new(0, 4)
 
         local state = false
         btn.MouseButton1Click:Connect(function()
             state = not state
-            btn.Text = num .. ". " .. name .. (state and ": BẬT" or ": TẮT")
-            btn.BackgroundColor3 = state and Color3.fromRGB(0, 170, 0) or Color3.fromRGB(45, 45, 45)
+            if state then
+                statusTag.Text = "ON"
+                statusTag.TextColor3 = Color3.fromRGB(255, 255, 255)
+                statusTag.BackgroundColor3 = Color3.fromRGB(0, 180, 100)
+                btn.BackgroundColor3 = Color3.fromRGB(30, 45, 40)
+            else
+                statusTag.Text = "OFF"
+                statusTag.TextColor3 = Color3.fromRGB(150, 150, 150)
+                statusTag.BackgroundColor3 = Color3.fromRGB(40, 45, 55)
+                btn.BackgroundColor3 = Color3.fromRGB(25, 28, 38)
+            end
             if callback then callback(state) end
         end)
-        yPos = yPos + 35
+        yPos = yPos + 38
     end
 
     local noclipEnabled, speedEnabled = false, false
@@ -138,7 +223,7 @@ local function LaunchMainHub()
         local hum = char and char:FindFirstChildOfClass("Humanoid")
         if hum then hum.WalkSpeed = speedEnabled and 40 or 16 end
     end)
-    addFeature(3, "Nhảy Cao", function(s)
+    addFeature(3, "Nhảy Cao VIP", function(s)
         local hum = player.Character and player.Character:FindFirstChildOfClass("Humanoid")
         if hum then hum.JumpPower = s and 100 or 50 end
     end)
@@ -166,7 +251,7 @@ local function LaunchMainHub()
                     p.Anchored = true
                     p.CanCollide = true
                     p.Material = Enum.Material.ForceField
-                    p.Color = Color3.fromRGB(0, 255, 255)
+                    p.Color = Color3.fromRGB(0, 255, 200)
                     p.Parent = workspace
                     table.insert(baseParts, p)
                 end
@@ -177,9 +262,9 @@ local function LaunchMainHub()
         end
     end)
 
-    LeftMenu.CanvasSize = UDim2.new(0, 0, 0, yPos + 20)
+    LeftMenu.CanvasSize = UDim2.new(0, 0, 0, yPos + 15)
 
-    -- Loop Noclip & Speed
+    -- Loop
     RunService.Stepped:Connect(function()
         if noclipEnabled and player.Character then
             for _, v in pairs(player.Character:GetDescendants()) do
@@ -192,60 +277,58 @@ local function LaunchMainHub()
         end
     end)
 
-    -- Panel Phải: QUÉT TRỨNG + HÌNH ẢNH + TIỀN TRỨNG
+    -- Panel Phải: RADAR QUÉT TRỨNG
     local StealPanel = Instance.new("ScrollingFrame")
-    StealPanel.Size = UDim2.new(0, 280, 0, 340)
+    StealPanel.Size = UDim2.new(0, 290, 0, 360)
     StealPanel.Position = UDim2.new(0.65, 0, 0.12, 0)
-    StealPanel.BackgroundColor3 = Color3.fromRGB(20, 20, 20)
+    StealPanel.BackgroundColor3 = Color3.fromRGB(15, 17, 23)
     StealPanel.BorderSizePixel = 0
-    StealPanel.ScrollBarThickness = 5
+    StealPanel.ScrollBarThickness = 4
+    StealPanel.ScrollBarImageColor3 = Color3.fromRGB(0, 255, 150)
     StealPanel.Parent = MainContainer
-    Instance.new("UICorner", StealPanel).CornerRadius = UDim.new(0, 10)
+    Instance.new("UICorner", StealPanel).CornerRadius = UDim.new(0, 12)
+
+    local RightStroke = Instance.new("UIStroke")
+    RightStroke.Color = Color3.fromRGB(40, 45, 60)
+    RightStroke.Thickness = 1
+    RightStroke.Parent = StealPanel
 
     local TitleRight = Instance.new("TextLabel")
-    TitleRight.Size = UDim2.new(1, 0, 0, 35)
-    TitleRight.BackgroundColor3 = Color3.fromRGB(35, 35, 35)
-    TitleRight.Text = "🥚 DANH SÁCH TRỨNG + TIỀN REALTIME"
-    TitleRight.TextColor3 = Color3.fromRGB(0, 255, 128)
-    TitleRight.Font = Enum.Font.SourceSansBold
-    TitleRight.TextSize = 11
+    TitleRight.Size = UDim2.new(1, 0, 0, 40)
+    TitleRight.BackgroundTransparency = 1
+    TitleRight.Text = "📡 RADAR TRỨNG & GIÁ TIỀN REALTIME"
+    TitleRight.TextColor3 = Color3.fromRGB(0, 255, 150)
+    TitleRight.Font = Enum.Font.GothamBold
+    TitleRight.TextSize = 12
     TitleRight.Parent = StealPanel
 
     local ListContainer = Instance.new("ScrollingFrame")
-    ListContainer.Size = UDim2.new(0.95, 0, 0, 280)
-    ListContainer.Position = UDim2.new(0.025, 0, 0, 40)
+    ListContainer.Size = UDim2.new(0.92, 0, 0, 300)
+    ListContainer.Position = UDim2.new(0.04, 0, 0, 45)
     ListContainer.BackgroundTransparency = 1
     ListContainer.BorderSizePixel = 0
-    ListContainer.ScrollBarThickness = 4
+    ListContainer.ScrollBarThickness = 3
     ListContainer.Parent = StealPanel
 
     local activeRows = {}
 
-    -- Hàm tìm hình ảnh & số tiền của quả trứng
     local function getEggDetails(model)
-        local imgId = "rbxassetid://10723381650" -- Ảnh quả trứng mặc định nếu không có Decal
-        local valueText = "💰 Giá: ??"
+        local imgId = "rbxassetid://10723381650"
+        local valueText = "💵 Giá: ??"
 
-        -- Tìm Decal/Texture/Image
         for _, descendant in pairs(model:GetDescendants()) do
-            if descendant:IsA("Decal") or descendant:IsA("Texture") then
-                if descendant.Texture ~= "" then
-                    imgId = descendant.Texture
-                    break
-                end
+            if (descendant:IsA("Decal") or descendant:IsA("Texture")) and descendant.Texture ~= "" then
+                imgId = descendant.Texture; break
             elseif descendant:IsA("ImageLabel") and descendant.Image ~= "" then
-                imgId = descendant.Image
-                break
+                imgId = descendant.Image; break
             end
         end
 
-        -- Tìm thông số tiền/BillboardGui
         for _, descendant in pairs(model:GetDescendants()) do
             if descendant:IsA("TextLabel") or descendant:IsA("TextButton") then
                 local txt = descendant.Text
                 if string.find(txt, "%$") or string.find(string.lower(txt), "egg") or string.find(txt, "x") or tonumber(txt) then
-                    valueText = "💵 " .. txt
-                    break
+                    valueText = "💵 " .. txt; break
                 end
             elseif descendant:IsA("StringValue") or descendant:IsA("IntValue") or descendant:IsA("NumberValue") then
                 valueText = "💵 " .. tostring(descendant.Value)
@@ -267,7 +350,6 @@ local function LaunchMainHub()
                 end
             end
 
-            -- Xóa các row hết hạn
             for model, rowData in pairs(activeRows) do
                 local exists = false
                 for _, eggData in ipairs(currentEggs) do
@@ -279,7 +361,6 @@ local function LaunchMainHub()
                 end
             end
 
-            -- Cập nhật row có Hình Ảnh + Số Tiền
             local yOffset = 0
             for _, eggData in ipairs(currentEggs) do
                 local model = eggData.Model
@@ -288,55 +369,56 @@ local function LaunchMainHub()
 
                 if not activeRows[model] then
                     local row = Instance.new("Frame")
-                    row.Size = UDim2.new(1, 0, 0, 48)
-                    row.BackgroundColor3 = Color3.fromRGB(40, 40, 40)
+                    row.Size = UDim2.new(1, 0, 0, 52)
+                    row.BackgroundColor3 = Color3.fromRGB(22, 26, 36)
                     row.Parent = ListContainer
-                    Instance.new("UICorner", row).CornerRadius = UDim.new(0, 6)
+                    Instance.new("UICorner", row).CornerRadius = UDim.new(0, 8)
 
-                    -- Icon Ảnh Trứng
+                    local rowStroke = Instance.new("UIStroke")
+                    rowStroke.Color = Color3.fromRGB(35, 40, 55)
+                    rowStroke.Thickness = 1
+                    rowStroke.Parent = row
+
                     local imgLbl = Instance.new("ImageLabel")
-                    imgLbl.Size = UDim2.new(0, 38, 0, 38)
-                    imgLbl.Position = UDim2.new(0, 5, 0, 5)
-                    imgLbl.BackgroundColor3 = Color3.fromRGB(25, 25, 25)
+                    imgLbl.Size = UDim2.new(0, 40, 0, 40)
+                    imgLbl.Position = UDim2.new(0, 6, 0, 6)
+                    imgLbl.BackgroundColor3 = Color3.fromRGB(12, 14, 20)
                     imgLbl.Image = imgId
                     imgLbl.Parent = row
-                    Instance.new("UICorner", imgLbl).CornerRadius = UDim.new(0, 4)
+                    Instance.new("UICorner", imgLbl).CornerRadius = UDim.new(0, 6)
 
-                    -- Tên Trứng
                     local nameLbl = Instance.new("TextLabel")
-                    nameLbl.Size = UDim2.new(0.5, 0, 0.5, 0)
-                    nameLbl.Position = UDim2.new(0, 48, 0, 4)
+                    nameLbl.Size = UDim2.new(0.48, 0, 0.45, 0)
+                    nameLbl.Position = UDim2.new(0, 52, 0, 6)
                     nameLbl.BackgroundTransparency = 1
                     nameLbl.Text = model.Name
                     nameLbl.TextColor3 = Color3.fromRGB(255, 255, 255)
-                    nameLbl.Font = Enum.Font.SourceSansBold
+                    nameLbl.Font = Enum.Font.GothamBold
                     nameLbl.TextSize = 11
                     nameLbl.TextXAlignment = Enum.TextXAlignment.Left
                     nameLbl.Parent = row
 
-                    -- Dòng Số Tiền / Thông Số
                     local valLbl = Instance.new("TextLabel")
-                    valLbl.Size = UDim2.new(0.5, 0, 0.4, 0)
-                    valLbl.Position = UDim2.new(0, 48, 0, 24)
+                    valLbl.Size = UDim2.new(0.48, 0, 0.4, 0)
+                    valLbl.Position = UDim2.new(0, 52, 0, 26)
                     valLbl.BackgroundTransparency = 1
                     valLbl.Text = valueText
-                    valLbl.TextColor3 = Color3.fromRGB(255, 215, 0)
-                    valLbl.Font = Enum.Font.SourceSansBold
+                    valLbl.TextColor3 = Color3.fromRGB(255, 200, 0)
+                    valLbl.Font = Enum.Font.GothamMedium
                     valLbl.TextSize = 10
                     valLbl.TextXAlignment = Enum.TextXAlignment.Left
                     valLbl.Parent = row
 
-                    -- Nút Lướt Tới
                     local btn = Instance.new("TextButton")
-                    btn.Size = UDim2.new(0.28, 0, 0, 30)
+                    btn.Size = UDim2.new(0.28, 0, 0, 32)
                     btn.Position = UDim2.new(0.69, 0, 0.18, 0)
-                    btn.BackgroundColor3 = Color3.fromRGB(0, 170, 0)
+                    btn.BackgroundColor3 = Color3.fromRGB(0, 170, 100)
                     btn.Text = "Lướt Tới"
                     btn.TextColor3 = Color3.fromRGB(255, 255, 255)
-                    btn.Font = Enum.Font.SourceSansBold
+                    btn.Font = Enum.Font.GothamBold
                     btn.TextSize = 10
                     btn.Parent = row
-                    Instance.new("UICorner", btn).CornerRadius = UDim.new(0, 5)
+                    Instance.new("UICorner", btn).CornerRadius = UDim.new(0, 6)
 
                     btn.MouseButton1Click:Connect(function()
                         local char = player.Character
@@ -352,12 +434,11 @@ local function LaunchMainHub()
 
                     activeRows[model] = {Frame = row, ValueLbl = valLbl, ImgLbl = imgLbl}
                 else
-                    -- Cập nhật lại giá trị tiền mượt mà
                     activeRows[model].ValueLbl.Text = valueText
                 end
 
                 activeRows[model].Frame.Position = UDim2.new(0, 0, 0, yOffset)
-                yOffset = yOffset + 53
+                yOffset = yOffset + 58
             end
 
             ListContainer.CanvasSize = UDim2.new(0, 0, 0, yOffset)
@@ -367,9 +448,9 @@ end
 
 SubmitBtn.MouseButton1Click:Connect(function()
     if TextBox.Text == "123" then
-        LaunchMainHub()
+        ShowWelcomeScreen(LaunchMainHub)
     else
         TextBox.Text = ""
-        TextBox.PlaceholderText = "Sai Pass!"
+        TextBox.PlaceholderText = "Sai Mật Khẩu!"
     end
 end)
